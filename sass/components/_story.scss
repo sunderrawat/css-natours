@@ -10,6 +10,16 @@
   transform: skewX(-12deg);
   margin: 0 auto;
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
   &__shape {
     width: 15rem;
     height: 15rem;
@@ -21,19 +31,26 @@
     transform: translateX(-3rem) skewX(12deg);
     overflow: hidden;
     position: relative;
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
   &__img {
     height: 100%;
     transform: translateX(-4rem) scale(1.4);
     backface-visibility: hidden;
     transition: all 0.5s;
-
   }
   &__text {
     font-size: $default-font-size;
     transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
-  &__caption{
+  &__caption {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -47,12 +64,12 @@
     backface-visibility: hidden;
   }
 
-  &:hover &__caption{
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
-    &:hover &__img{
-        transform: translateX(-4rem) scale(1.1);
-        filter: blur(4px) brightness(80%);
-    }
+  &:hover &__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1.1);
+    filter: blur(4px) brightness(80%);
+  }
 }
